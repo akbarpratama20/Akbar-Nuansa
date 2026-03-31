@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Biodata Diri | Portfolio Profil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Kartu utama */
+        .card {
+            max-width: 950px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header dengan background gradien */
+        .header-bg {
+            background: linear-gradient(120deg, #2b3b4e, #1d2c3a);
+            padding: 1.8rem 2rem 1rem 2rem;
+            text-align: center;
+        }
+
+        /* Area foto profil */
+        .photo-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            background-color: #f0f2f5;
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Nama & status */
+        .name {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: white;
+            margin: 1rem 0 0.3rem 0;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Isi biodata */
+        .bio-container {
+            padding: 2rem 2rem 1.8rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e2a36;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #2b3b4e;
+            padding-left: 1rem;
+        }
+
+        /* Grid biodata */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            background: #f8fafc;
+            padding: 1.2rem 1.5rem;
+            border-radius: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+            color: #1e2a3a;
+            font-weight: 500;
+        }
+
+        .info-item i {
+            width: 32px;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            background: #eef2f7;
+            padding: 8px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .info-text {
+            font-weight: 500;
+            word-break: break-word;
+        }
+
+        .info-label {
+            font-weight: 600;
+            margin-right: 6px;
+            color: #0f172a;
+        }
+
+        /* Deskripsi / tentang */
+        .about-text {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #2d3e50;
+            font-size: 0.95rem;
+        }
+
+        /* Judul sosial media */
+        .social-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1e293b;
+        }
+
+        .social-title i {
+            font-size: 1.6rem;
+            color: #2c3e50;
+        }
+
+        /* Tombol link sosial media modern */
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #f1f5f9;
+            padding: 0.8rem 1.4rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #1f2a3e;
+            transition: all 0.25s ease;
+            border: 1px solid #e0e7ef;
+            backdrop-filter: blur(2px);
+        }
+
+        .social-btn i {
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Warna icon masing-masing saat hover */
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.15);
+            background: white;
+        }
+
+        .btn-wa:hover i { color: #25D366; }
+        .btn-ig:hover i { color: #E4405F; }
+        .btn-yt:hover i { color: #FF0000; }
+        .btn-tt:hover i { color: #010101; }
+        .btn-email:hover i { color: #D44638; }
+
+        /* Footer sederhana */
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #7e8c9e;
+            border-top: 1px solid #eef2f8;
+            padding-top: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .card {
+                border-radius: 1.5rem;
+            }
+            .bio-container {
+                padding: 1.5rem;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .social-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+            .name {
+                font-size: 1.6rem;
+            }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* tombol copy email subtle (opsional) */
+        .email-copy-tip {
+            font-size: 0.7rem;
+            margin-left: 8px;
+            opacity: 0.7;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="header-bg">
+        <div class="photo-wrapper">
+            <img class="profile-img" 
+                 src="akb.jpg" 
+                 alt="Foto Profil" 
+                 onerror="this.src='https://ui-avatars.com/api/?background=2b3b4e&color=fff&size=150&name=User';">
+        </div>
+        <div class="name">Muhammad Akbar Pratama</div>
+        <div class="tagline">✨ Content Creator | Automotive Enthusiast ✨</div>
+    </div>
+    <div class="bio-container">
+        <div class="section-title">📋 Biodata Diri</div>
+        <div class="info-grid">
+            <div class="info-item">
+                <i class="fas fa-user-circle"></i>
+                <div class="info-text"><span class="info-label">Nama Lengkap:</span> Muhammad Akbar Pratama</div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="info-text"><span class="info-label">Tempat, Tgl Lahir:</span> Gresik, 1 Juli 2002</div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-venus-mars"></i>
+                <div class="info-text"><span class="info-label">Jenis Kelamin:</span> Laki-Laki</div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="info-text"><span class="info-label">Alamat:</span> Ds. Setro Kec. Menganti Kab. Gresik Jawa Timur</div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="info-text"><span class="info-label">Pendidikan:</span> S1 Teknik Informatika - UTM</div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-briefcase"></i>
+                <div class="info-text"><span class="info-label">Pekerjaan:</span> Freelance Tour Leader & Konten Kreator</div>
+            </div>
+        </div>        
+        <div class="social-title">
+            <i class="fas fa-share-alt"></i> 
+            <span>Connect & Follow Me</span>
+        </div>       
+        <div class="social-links">
+            <a href="https://wa.me/6285854150524?text=Halo Kak Akbar. Saya ingin tanya paket wisata apa bisa?" 
+               class="social-btn btn-wa" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>           
+            <a href="https://www.instagram.com/akbarpratama256/" class="social-btn btn-ig" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>           
+            <a href="https://www.youtube.com/@nuansa_utama_tour" class="social-btn btn-yt" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>           
+            <a href="https://www.tiktok.com/@akbarpratama650" class="social-btn btn-tt" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+        </div>   
+        <div style="margin-top: 1.2rem; font-size: 0.8rem; color: #4a627a; background: #f8fafc; padding: 0.6rem 1rem; border-radius: 60px; display: inline-block;">
+            <i class="fas fa-link"></i> Semua tautan aktif & siap terhubung
+        </div>      
+        <div class="footer-note">
+            <i class="far fa-copyright"></i> 2026 Muhammad Akbar Pratama | Terima kasih telah berkunjung
+        </div>
+    </div>
+</div>
+</body>
+</html>
